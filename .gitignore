@@ -1,3 +1,9 @@
 CodeP1/Solution/.vs/
 CodeP1/Solution/API/bin/
 CodeP1/Solution/API/obj/
+CodeP1/Solution/BE.API/obj/
+CodeP1/Solution/BE.BS/obj/
+CodeP1/Solution/BE.DAL.DO/obj/
+CodeP1/Solution/BE.DAL.EF/obj/
+CodeP1/Solution/BE.DAL.Repository/obj/
+CodeP1/Solution/BE.DAL/obj/
