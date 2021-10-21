@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using BE.API.Mapping;
 
 namespace BE.API
 {
@@ -31,6 +33,17 @@ namespace BE.API
                                                            Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
+
+
+            ////////// INICIO AutoMapper
+            var mappingConfig = new MapperConfiguration(mc => {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+
+            services.AddSingleton(mapper);
+            ////////// FIN AutoMapper
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();

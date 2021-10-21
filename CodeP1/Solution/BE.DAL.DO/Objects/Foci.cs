@@ -4,6 +4,7 @@ using System.Text;
 
 namespace BE.DAL.DO.Objects
 {
+    
     public class Foci
     {
         public int FocusId { get; set; }
