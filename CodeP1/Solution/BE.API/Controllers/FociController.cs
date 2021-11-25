@@ -28,7 +28,6 @@ namespace BE.API.Controllers
         {
             var res = await new BE.BS.Foci(dbcontext).GetAllAsync();
             var mapaux = mapper.Map<IEnumerable<data.Foci>, IEnumerable<models.Foci>>(res).ToList();
-
             return mapaux;
 
             // Este GetAll no trae las relaaciones

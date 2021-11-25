@@ -11,6 +11,7 @@ namespace BE.DAL.Repository
 {
     public class RepositoryFoci : Repository<data.Foci>, IRepositoryFoci
     {
+
         public RepositoryFoci(SocialGoalDbContext _dbContext): base(_dbContext) { 
         
         }
@@ -27,7 +28,6 @@ namespace BE.DAL.Repository
                 .Include(m => m.Group)
                 .SingleOrDefaultAsync(m => m.FocusId == id);
         }
-
         private SocialGoalDbContext _db {
             get { return dbContext as SocialGoalDbContext; }
         }
