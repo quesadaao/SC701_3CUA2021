@@ -16,7 +16,7 @@ namespace FrontEnd.API.Controllers
         // GET: Groups
         public async Task<IActionResult> Index()
         {
-            return View(servicios.GetAllAsync());
+            return View(servicios.GetAll());
         }
 
         // GET: Groups/Details/5
