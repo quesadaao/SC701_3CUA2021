@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Wizzard", "UI.Wizzard\UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{CCAEDDF6-7303-4250-AEA1-FE8B6C2764EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Login", "UI.Login\UI.Login.csproj", "{4849E2F1-F911-47B9-B452-4B3A3F6A6C2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CCAEDDF6-7303-4250-AEA1-FE8B6C2764EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCAEDDF6-7303-4250-AEA1-FE8B6C2764EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCAEDDF6-7303-4250-AEA1-FE8B6C2764EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4849E2F1-F911-47B9-B452-4B3A3F6A6C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4849E2F1-F911-47B9-B452-4B3A3F6A6C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4849E2F1-F911-47B9-B452-4B3A3F6A6C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4849E2F1-F911-47B9-B452-4B3A3F6A6C2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
