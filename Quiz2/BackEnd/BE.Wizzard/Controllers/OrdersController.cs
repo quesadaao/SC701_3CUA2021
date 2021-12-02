@@ -11,49 +11,48 @@ namespace BE.Wizzard.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class OrdersController : ControllerBase
     {
         private readonly BikeStoresContext _context;
 
-        public ProductsController(BikeStoresContext context)
+        public OrdersController(BikeStoresContext context)
         {
             _context = context;
         }
 
-        // GET: api/Products
+        // GET: api/Orders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Products>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<Orders>>> GetOrders()
         {
-            var database = _context.Products.Include(f => f.Category).Include(z => z.Brand);
+            var database = _context.Orders.Include(f => f.Staff).Include(z => z.Store).Include(z => z.Customer);
             return await database.ToListAsync();
         }
 
-        // GET: api/Products/5
+        // GET: api/Orders/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Products>> GetProducts(int id)
+        public async Task<ActionResult<Orders>> GetOrders(int id)
         {
-            var products = await _context.Products.Include(f => f.Category).Include(z => z.Brand).FirstOrDefaultAsync(m => m.ProductId == id);
-
-            if (products == null)
+            var orders = await _context.Orders.Include(f => f.Staff).Include(z => z.Store).Include(z => z.Customer).FirstOrDefaultAsync(m => m.OrderId == id);
+            if (orders == null)
             {
                 return NotFound();
             }
 
-            return products;
+            return orders;
         }
 
-        // PUT: api/Products/5
+        // PUT: api/Orders/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProducts(int id, Products products)
+        public async Task<IActionResult> PutOrders(int id, Orders orders)
         {
-            if (id != products.ProductId)
+            if (id != orders.OrderId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(products).State = EntityState.Modified;
+            _context.Entry(orders).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +60,7 @@ namespace BE.Wizzard.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductsExists(id))
+                if (!OrdersExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +73,37 @@ namespace BE.Wizzard.Controllers
             return NoContent();
         }
 
-        // POST: api/Products
+        // POST: api/Orders
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Products>> PostProducts(Products products)
+        public async Task<ActionResult<Orders>> PostOrders(Orders orders)
         {
-            _context.Products.Add(products);
+            _context.Orders.Add(orders);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProducts", new { id = products.ProductId }, products);
+            return CreatedAtAction("GetOrders", new { id = orders.OrderId }, orders);
         }
 
-        // DELETE: api/Products/5
+        // DELETE: api/Orders/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Products>> DeleteProducts(int id)
+        public async Task<ActionResult<Orders>> DeleteOrders(int id)
         {
-            var products = await _context.Products.FindAsync(id);
-            if (products == null)
+            var orders = await _context.Orders.FindAsync(id);
+            if (orders == null)
             {
                 return NotFound();
             }
 
-            _context.Products.Remove(products);
+            _context.Orders.Remove(orders);
             await _context.SaveChangesAsync();
 
-            return products;
+            return orders;
         }
 
-        private bool ProductsExists(int id)
+        private bool OrdersExists(int id)
         {
-            return _context.Products.Any(e => e.ProductId == id);
+            return _context.Orders.Any(e => e.OrderId == id);
         }
     }
 }
